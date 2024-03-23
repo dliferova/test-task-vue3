@@ -1,47 +1,40 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import HeaderElement from '@/components/HeaderElement.vue'
+import DataTable from './components/DataTable.vue'
+import { reactive } from 'vue'
+
+const appState = reactive({
+  isPanelHidden: true
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <HeaderElement />
+  <main class="main">
+    <div
+      class="main__layout"
+      :class="{ 'main__layout--with-opened-panel': appState.isPanelHidden }"
+    >
+      <div class="panel bg-white" :class="{ hidden: !appState.isPanelHidden }">
+        <p class="text-500 text-sm font-semibold uppercase pt-2 pr-0 pb-2 pl-2 m-0">Applications</p>
+        <div class="w-full bg-yellow-500 pt-2 pr-3 pb-2 pl-3">
+          <div class="inline-flex align-items-baseline">
+            <i class="pi pi-star text-lg mr-3 text-color" />
+            <span class="text-sm text-700 font-semibold">Registry</span>
+          </div>
+        </div>
+      </div>
+      <DataTable />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.main__layout {
+  display: grid;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.main__layout--with-opened-panel {
+  grid-template-columns: 20% 1fr;
 }
 </style>

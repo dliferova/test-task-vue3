@@ -4,8 +4,11 @@ import InputSwitch from 'primevue/inputswitch'
 import Button from 'primevue/button'
 import InlineMessage from 'primevue/inlinemessage'
 import { useAppStore } from '@/store/appStore'
+import Dialog from 'primevue/dialog'
+import Message from 'primevue/message'
 
 const switchValue = ref<boolean>(false)
+const visibleAuthInfoModal = ref(false)
 const appStore = useAppStore()
 
 onMounted(appStore.fetchData)
@@ -44,7 +47,7 @@ onMounted(appStore.fetchData)
                 <tr class="two-columns-tr">
                   <td class="font-bold">AuthInfo:</td>
                   <td>
-                    <Button class="p-disabled">Show</Button>
+                    <Button @click="visibleAuthInfoModal = true">Show</Button>
                   </td>
                 </tr>
                 <tr class="two-columns-tr">
@@ -346,6 +349,19 @@ onMounted(appStore.fetchData)
       </div>
     </div>
   </div>
+
+  <!--Start modal -->
+  <Dialog
+    v-model:visible="visibleAuthInfoModal"
+    modal
+    header="AuthInfo"
+    :style="{ width: '25rem' }"
+  >
+    <span class="p-text-secondary block mb-1">Secret password is: </span>
+    <Message :closable="false" severity="info">p4dIdnm&6dj</Message>
+  </Dialog>
+
+  <!--End modal -->
 </template>
 
 <style scoped>

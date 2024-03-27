@@ -8,12 +8,7 @@ const appStore = useAppStore()
 const togglePanel = () => {
   appStore.togglePanel()
 }
-
 const visible = ref(false)
-
-const handleClick = () => {
-  visible.value = true
-}
 </script>
 
 <template>
@@ -29,10 +24,15 @@ const handleClick = () => {
         </li>
         <li>
           <div class="user-info">
-            <Button label="Jan Musilek" icon="pi pi-user" @click="handleClick" />
+            <Button label="Jan Musilek" icon="pi pi-user" @click="visible = true" />
           </div>
 
-          <Dialog v-model:visible="visible" :style="{ width: '25rem' }" position="topright">
+          <Dialog
+            v-model:visible="visible"
+            header="User"
+            :style="{ width: '25rem' }"
+            position="topright"
+          >
             <div class="flex flex-row align-items-center border-bottom-1 border-bluegray-100 pb-2">
               <i class="pi pi-user text-lg mr-4" />
               <div class="flex flex-column">

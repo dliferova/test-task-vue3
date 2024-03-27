@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import HeaderElement from '@/components/HeaderElement.vue'
 import DataTable from './components/DataTable.vue'
-import { reactive } from 'vue'
+import { useAppStore } from '@/store/appStore'
 
-const appState = reactive({
-  isPanelHidden: true
-})
+const appStore = useAppStore()
 </script>
 
 <template>
@@ -13,9 +11,12 @@ const appState = reactive({
   <main class="main">
     <div
       class="main__layout"
-      :class="{ 'main__layout--with-opened-panel': appState.isPanelHidden }"
+      :class="{ 'main__layout--with-opened-panel': appStore.isPanelOpened }"
     >
-      <div class="panel bg-white" :class="{ hidden: !appState.isPanelHidden }">
+      <div
+        class="panel bg-white fadeinleft animation-duration-1000 animation-iteration-1"
+        :class="{ hidden: !appStore.isPanelOpened }"
+      >
         <p class="text-500 text-sm font-semibold uppercase pt-2 pr-0 pb-2 pl-2 m-0">Applications</p>
         <div class="w-full bg-yellow-500 pt-2 pr-3 pb-2 pl-3">
           <div class="inline-flex align-items-baseline">
@@ -32,6 +33,11 @@ const appState = reactive({
 <style scoped>
 .main__layout {
   display: grid;
+}
+
+.t {
+  display: grid;
+  grid-template-rows: 80px 1fr;
 }
 
 .main__layout--with-opened-panel {

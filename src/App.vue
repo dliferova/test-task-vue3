@@ -10,12 +10,15 @@ const appStore = useAppStore()
   <HeaderElement />
   <main class="main">
     <div
-      class="main__layout"
+      class="main__layout h-full"
       :class="{ 'main__layout--with-opened-panel': appStore.isPanelOpened }"
     >
       <div
-        class="panel bg-white fadeinleft animation-duration-1000 animation-iteration-1"
-        :class="{ hidden: !appStore.isPanelOpened }"
+        class="panel bg-white animation-duration-300 animation-iteration-1"
+        :class="{
+          fadeinleft: appStore.isPanelOpened,
+          hidden: !appStore.isPanelOpened
+        }"
       >
         <p class="text-500 text-sm font-semibold uppercase pt-2 pr-0 pb-2 pl-2 m-0">Applications</p>
         <div class="w-full bg-yellow-500 pt-2 pr-3 pb-2 pl-3">
@@ -35,12 +38,7 @@ const appStore = useAppStore()
   display: grid;
 }
 
-.t {
-  display: grid;
-  grid-template-rows: 80px 1fr;
-}
-
 .main__layout--with-opened-panel {
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 280px 1fr;
 }
 </style>

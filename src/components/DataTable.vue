@@ -2,34 +2,29 @@
 import { onMounted, ref } from 'vue'
 import InputSwitch from 'primevue/inputswitch'
 import Button from 'primevue/button'
+import InlineMessage from 'primevue/inlinemessage'
 import { useAppStore } from '@/store/appStore'
 
-const isPageDataLoading = ref<boolean>(true)
 const switchValue = ref<boolean>(false)
 const appStore = useAppStore()
 
-const fetchData = async () => {
-  try {
-    await appStore.fetchData()
-  } catch (error) {
-    console.error('Error fetching data:', error)
-  } finally {
-    isPageDataLoading.value = false
-  }
-}
-
-onMounted(fetchData)
+onMounted(appStore.fetchData)
 </script>
 
 <template>
-  <div v-if="isPageDataLoading">
+  <div v-if="appStore.isPageDataLoading">
     <div class="inline-flex align-items-center">
       <i class="pi pi-spin pi-spinner text-2xl mr-3" />
       <p class="m-0 text-2xl">Loading...</p>
     </div>
   </div>
   <div v-else>
-    <div class="pt-3 pr-6 pb-2 pl-6">
+    <div v-if="appStore.data === null" class="flex flex-column align-items-center pt-6">
+      <InlineMessage severity="error"
+        >Ooops, something went wrong... please try again</InlineMessage
+      >
+    </div>
+    <div v-else class="pt-3 pr-6 pb-2 pl-6">
       <h1 class="text-xl font-bold m-0 mb-3">{{ appStore.data!.fqdn }}</h1>
       <div class="inline-flex align-items-center mb-3">
         <InputSwitch
@@ -135,7 +130,7 @@ onMounted(fetchData)
                   </ul>
                 </template>
                 <template v-else>
-                  <ul class="fff">
+                  <ul>
                     <li
                       v-for="(flag, index) in appStore.data!.state_flags.flags"
                       :key="`state-flag-${index}`"
@@ -305,7 +300,7 @@ onMounted(fetchData)
                         v-for="(dnsItem, index) in appStore.data!.nsset.dns"
                         :key="`dns-${index}`"
                       >
-                        {{ dnsItem.name }}({{ dnsItem.ip_address }})
+                        {{ dnsItem.name }} ({{ dnsItem.ip_address }})
                       </li>
                     </ul>
                   </td>
@@ -373,18 +368,6 @@ onMounted(fetchData)
   max-width: 100%;
   display: grid;
   grid-template-columns: 25% 35% max-content max-content;
-  column-gap: 20px;
-}
-
-.test {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(7, max-content);
-  colimn-gap: 20px;
-}
-
-.fff {
-  column-count: 3;
   column-gap: 20px;
 }
 </style>

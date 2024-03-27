@@ -2,12 +2,10 @@
 import { useAppStore } from '@/store/appStore'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
-import SplitButton from 'primevue/splitbutton'
 import { ref } from 'vue'
 
 const appStore = useAppStore()
 const togglePanel = () => {
-  console.log('Click me')
   appStore.togglePanel()
 }
 
@@ -15,12 +13,11 @@ const visible = ref(false)
 
 const handleClick = () => {
   visible.value = true
-  console.log('Button clicked, dialog visibility set to true')
 }
 </script>
 
 <template>
-  <header class="header bg-primary shadow-4 pt-4 pb-4 pl-3 pr-3">
+  <header class="header bg-primary shadow-4 pt-3 pb-3 pl-3 pr-3">
     <nav>
       <ul class="flex flex-row justify-content-between align-items-center">
         <li class="flex flex-row align-items-center">

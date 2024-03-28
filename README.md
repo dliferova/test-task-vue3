@@ -1,18 +1,27 @@
-# neviditela-univerzita-vue
+# Testové zadání pro CZ.NIC 
 
-This template should help get you started developing with Vue 3 in Vite.
+Cílem tohoto úkolu bylo vytvořit webovou stránku s detaily fiktivní domény neviditelna-univerzita.cz v Vue.js.
 
-## Recommended IDE Setup
+## Tech Stack 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+![Vue](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![EsLint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 
-## Type Support for `.vue` Imports in TS
+**[UI library PrimeVue](https://primevue.org/)**  
+**[CSS Utility PrimeFlex](https://primeflex.org/)**  
+**[State management Pinia](https://pinia.vuejs.org/)**  
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Features
 
-## Customize configuration
+1) Použito Vue 3 s dodržením **Priority A: Essential** a některých **Priority B - Strongly Recommended**.
+1) Vytvořen responzivní design aplikace.
+1) Webová stránka s detaily má dva režimy - stručný a podrobný. 
+1) Po kliknutí na tlačítko "Zobrazit" v řádku AuthInfo je zobrazeno tajné heslo. 
+1) Po kliknutí na uživatelské jméno v pravém horním rohu stránky se zobrazí uživatelské menu.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
@@ -30,10 +39,4 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```

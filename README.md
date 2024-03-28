@@ -21,7 +21,9 @@ Cílem tohoto úkolu bylo vytvořit webovou stránku s detaily fiktivní domény
 1) Webová stránka s detaily má dva režimy - stručný a podrobný. 
 1) Po kliknutí na tlačítko "Zobrazit" v řádku AuthInfo je zobrazeno tajné heslo. 
 1) Po kliknutí na uživatelské jméno v pravém horním rohu stránky se zobrazí uživatelské menu.
+1) Implementované příklady testů s Vitest, `@testing-library/vue` a `@pinia/testing`
 
+<img src="tests.png" alt="tests" width="400"/>
 
 ## Project Setup
 
@@ -33,6 +35,12 @@ npm install
 
 ```sh
 npm run dev
+```
+
+### Run tests
+
+```sh
+npm run test
 ```
 
 ### Type-Check, Compile and Minify for Production

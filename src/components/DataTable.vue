@@ -24,8 +24,8 @@ onMounted(appStore.fetchData)
   <div v-else>
     <div v-if="appStore.data === null" class="flex flex-column align-items-center pt-6">
       <InlineMessage severity="error"
-        >Ooops, something went wrong... please try again</InlineMessage
-      >
+        >Ooops, something went wrong... please try again
+      </InlineMessage>
     </div>
     <div v-else class="pt-3 pr-6 pb-2 pl-6">
       <h1 class="text-xl font-bold m-0 mb-3">{{ appStore.data!.fqdn }}</h1>
@@ -71,24 +71,30 @@ onMounted(appStore.fetchData)
                     <td class="font-bold">Create date:</td>
                     <td>{{ appStore.data!.events.registered.timestamp }}</td>
                     <td class="font-bold">Registrar:</td>
-                    <td class="text-primary">
-                      {{ appStore.data!.events.registered.registrar_handle }}
+                    <td>
+                      <a class="text-primary" href="#">
+                        {{ appStore.data!.events.registered.registrar_handle }}
+                      </a>
                     </td>
                   </tr>
                   <tr class="four-columns-tr">
                     <td class="font-bold">Update date:</td>
                     <td>{{ appStore.data!.events.updated.timestamp }}</td>
                     <td class="font-bold">Registrar:</td>
-                    <td class="text-primary">
-                      {{ appStore.data!.events.updated.registrar_handle }}
+                    <td>
+                      <a class="text-primary" href="#">
+                        {{ appStore.data!.events.updated.registrar_handle }}
+                      </a>
                     </td>
                   </tr>
                   <tr class="four-columns-tr">
                     <td class="font-bold">Transfer date:</td>
                     <td>{{ appStore.data!.events.transferred.timestamp }}</td>
                     <td class="font-bold">Registrar:</td>
-                    <td class="text-primary">
-                      {{ appStore.data!.events.transferred.registrar_handle }}
+                    <td>
+                      <a class="text-primary" href="#">
+                        {{ appStore.data!.events.transferred.registrar_handle }}
+                      </a>
                     </td>
                   </tr>
                   <tr class="four-columns-tr">
@@ -176,7 +182,9 @@ onMounted(appStore.fetchData)
                 <table class="w-full">
                   <tr class="two-columns-tr">
                     <td class="font-bold ml-4">Handle:</td>
-                    <td class="text-primary">{{ appStore.data!.owner.handle }}</td>
+                    <td>
+                      <a class="text-primary" href="#">{{ appStore.data!.owner.handle }}</a>
+                    </td>
                   </tr>
                   <tr class="two-columns-tr">
                     <td>
@@ -225,7 +233,11 @@ onMounted(appStore.fetchData)
                       class="two-columns-tr"
                     >
                       <td class="font-bold pr-4">{{ contact.handle }}:</td>
-                      <td class="text-primary">{{ contact.handle }}</td>
+                      <td>
+                        <a class="text-primary" href="#">
+                          {{ contact.handle }}
+                        </a>
+                      </td>
                     </tr>
                   </table>
                 </div>
@@ -245,7 +257,11 @@ onMounted(appStore.fetchData)
                   <table class="w-full">
                     <tr class="two-columns-tr">
                       <td class="font-bold ml-4">Handle:</td>
-                      <td class="text-primary">{{ contact.handle }}</td>
+                      <td>
+                        <a class="text-primary" href="#">
+                          {{ contact.handle }}
+                        </a>
+                      </td>
                     </tr>
                     <tr class="two-columns-tr">
                       <td>
@@ -289,11 +305,19 @@ onMounted(appStore.fetchData)
               <table class="w-full">
                 <tr class="two-columns-tr">
                   <td class="font-bold">Handle:</td>
-                  <td class="text-primary">{{ appStore.data!.nsset.handle }}</td>
+                  <td>
+                    <a class="text-primary" href="#">
+                      {{ appStore.data!.nsset.handle }}
+                    </a>
+                  </td>
                 </tr>
                 <tr class="two-columns-tr">
                   <td class="font-bold">Registrar:</td>
-                  <td class="text-primary">{{ appStore.data!.nsset.registrar }}</td>
+                  <td>
+                    <a class="text-primary" href="#">
+                      {{ appStore.data!.nsset.registrar }}
+                    </a>
+                  </td>
                 </tr>
                 <tr class="two-columns-tr">
                   <td class="font-bold">DNS:</td>
@@ -322,11 +346,19 @@ onMounted(appStore.fetchData)
               <table class="w-full">
                 <tr class="two-columns-tr">
                   <td class="font-bold">Handle:</td>
-                  <td class="text-primary">{{ appStore.data!.keyset.handle }}</td>
+                  <td>
+                    <a class="text-primary" href="#">
+                      {{ appStore.data!.keyset.handle }}
+                    </a>
+                  </td>
                 </tr>
                 <tr class="two-columns-tr">
                   <td class="font-bold">Registrar:</td>
-                  <td class="text-primary">{{ appStore.data!.nsset.registrar }}</td>
+                  <td>
+                    <a class="text-primary" href="#">
+                      {{ appStore.data!.nsset.registrar }}
+                    </a>
+                  </td>
                 </tr>
                 <tr class="two-columns-tr">
                   <td class="font-bold">DNS:</td>

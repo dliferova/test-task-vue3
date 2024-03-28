@@ -1,6 +1,6 @@
 export const formatTime = (jsonTime: string) => {
   const dateObject = new Date(jsonTime)
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

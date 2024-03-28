@@ -379,7 +379,7 @@ import type { DomainDetailsApi } from '@/types/common'
 import { useAppStore } from '@/store/appStore'
 
 interface DataTableProps {
-  data: DomainDetailsApi
+  data: DomainDetailsApi | null
   isVerboseView: boolean
 }
 

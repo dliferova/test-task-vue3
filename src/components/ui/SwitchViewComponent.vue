@@ -4,13 +4,10 @@ import { ref } from 'vue'
 
 interface SwitchElementProps {
   label?: string
-  onChange: () => void
 }
 
 const props = defineProps<SwitchElementProps>()
 const checked = ref<boolean>(false)
-
-console.log(props.onChange())
 </script>
 
 <template>
@@ -18,7 +15,7 @@ console.log(props.onChange())
     <InputSwitch
       inputId="switch-mode"
       v-model="checked"
-      @change="onChange"
+      @change="$emit('onSwitch')"
     />
     <label
       v-if="props.label"

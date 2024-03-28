@@ -8,7 +8,7 @@
       <h1 class="text-xl font-bold m-0 mb-3">{{ appStore.data!.fqdn }}</h1>
       <SwitchViewElement
         label="Verbose view"
-        :on-change="appStore.updateSwitchValue"
+        @on-switch="appStore.updateSwitchValue"
       />
       <DataTable
         :data="appStore.data"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import InputSwitch from 'primevue/inputswitch'
 import Button from 'primevue/button'
 import InlineMessage from 'primevue/inlinemessage'
@@ -12,6 +12,21 @@ const visibleAuthInfoModal = ref(false)
 const appStore = useAppStore()
 
 onMounted(appStore.fetchData)
+
+const formattedTime = (jsonTime: string) => {
+  const dateObject = new Date(jsonTime)
+  const options = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: true
+  }
+
+  return dateObject.toLocaleString('en-US', options).replace(',', '')
+}
 </script>
 
 <template>
@@ -52,7 +67,7 @@ onMounted(appStore.fetchData)
                 </tr>
                 <tr class="two-columns-tr">
                   <td class="font-bold">Expires at:</td>
-                  <td>{{ appStore.data!.expires_at }}</td>
+                  <td>{{ formattedTime(appStore.data!.expires_at) }}</td>
                 </tr>
               </table>
             </div>
@@ -69,7 +84,7 @@ onMounted(appStore.fetchData)
                 <table class="w-full">
                   <tr class="four-columns-tr">
                     <td class="font-bold">Create date:</td>
-                    <td>{{ appStore.data!.events.registered.timestamp }}</td>
+                    <td>{{ formattedTime(appStore.data!.events.registered.timestamp) }}</td>
                     <td class="font-bold">Registrar:</td>
                     <td>
                       <a class="text-primary" href="#">
@@ -79,7 +94,7 @@ onMounted(appStore.fetchData)
                   </tr>
                   <tr class="four-columns-tr">
                     <td class="font-bold">Update date:</td>
-                    <td>{{ appStore.data!.events.updated.timestamp }}</td>
+                    <td>{{ formattedTime(appStore.data!.events.updated.timestamp) }}</td>
                     <td class="font-bold">Registrar:</td>
                     <td>
                       <a class="text-primary" href="#">
@@ -89,7 +104,7 @@ onMounted(appStore.fetchData)
                   </tr>
                   <tr class="four-columns-tr">
                     <td class="font-bold">Transfer date:</td>
-                    <td>{{ appStore.data!.events.transferred.timestamp }}</td>
+                    <td>{{ formattedTime(appStore.data!.events.transferred.timestamp) }}</td>
                     <td class="font-bold">Registrar:</td>
                     <td>
                       <a class="text-primary" href="#">

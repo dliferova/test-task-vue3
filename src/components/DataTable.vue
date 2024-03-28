@@ -76,7 +76,7 @@
         card-size="large"
         heading="State flags"
       >
-        <div v-if="props.isVerboseView">
+        <div v-if="!props.isVerboseView">
           <ul class="flex flex-column">
             <li
               v-for="(flag, index) in appStore.activeStateFlags"
@@ -182,7 +182,7 @@
       <!-- End card owner -->
 
       <!-- Start administrative contacts-->
-      <div v-if="props.isVerboseView">
+      <div v-if="!props.isVerboseView">
         <BaseCard
           card-size="small"
           heading="Administrative contacts"

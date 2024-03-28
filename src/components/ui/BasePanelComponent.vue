@@ -21,5 +21,3 @@ import { useAppStore } from '@/store/appStore'
 
 const appStore = useAppStore()
 </script>
-
-<style scoped></style>

@@ -3,14 +3,14 @@
 @import 'primeflex/primeflex.css';
 
 .display-grid {
-    display: grid;
+  display: grid;
 }
 
 .grid-three-columns {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
 }
 
 .word-break {
-    word-break: break-all;
+  word-break: break-all;
 }

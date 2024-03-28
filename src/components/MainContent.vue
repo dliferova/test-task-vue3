@@ -1,10 +1,19 @@
 <template>
-  <div class="display-grid h-full" :class="{ 'two-columns-layout': appStore.isPanelOpened }">
+  <div
+    class="display-grid h-full"
+    :class="{ 'two-columns-layout': appStore.isPanelOpened }"
+  >
     <BasePanelComponent />
     <div class="pt-3 pr-4 pb-2 pl-4">
       <h1 class="text-xl font-bold m-0 mb-3">{{ appStore.data!.fqdn }}</h1>
-      <SwitchViewElement label="Verbose view" :on-change="appStore.updateSwitchValue" />
-      <DataTable :data="appStore.data" :is-verbose-view="appStore.isVerboseView" />
+      <SwitchViewElement
+        label="Verbose view"
+        :on-change="appStore.updateSwitchValue"
+      />
+      <DataTable
+        :data="appStore.data"
+        :is-verbose-view="appStore.isVerboseView"
+      />
     </div>
   </div>
 </template>

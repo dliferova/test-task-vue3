@@ -15,7 +15,16 @@ console.log(props.onChange())
 
 <template>
   <div class="inline-flex align-items-center mb-3">
-    <InputSwitch inputId="switch-mode" v-model="checked" @change="onChange" />
-    <label v-if="props.label" class="ml-2" for="switch-mode">{{ props.label }}</label>
+    <InputSwitch
+      inputId="switch-mode"
+      v-model="checked"
+      @change="onChange"
+    />
+    <label
+      v-if="props.label"
+      class="ml-2"
+      for="switch-mode"
+      >{{ props.label }}</label
+    >
   </div>
 </template>

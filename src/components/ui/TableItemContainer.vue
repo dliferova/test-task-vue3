@@ -16,7 +16,10 @@ const props = defineProps<TableItemProps>()
         'card--large': cardSize === 'large'
       }"
     >
-      <div v-if="props.heading" class="bg-gray-200 border-bottom-1 border-400 pt-2 pr-1 pb-2 pl-3">
+      <div
+        v-if="props.heading"
+        class="bg-gray-200 border-bottom-1 border-400 pt-2 pr-1 pb-2 pl-3"
+      >
         <p class="m-0 font-bold">{{ props.heading }}:</p>
       </div>
       <div class="pt-2 pr-3 pb-2 pl-3">

@@ -45,7 +45,11 @@
       </div>
     </div>
     <div class="pt-4 pb-2">
-      <Button disabled label="Logout" icon="pi pi-sign-out" />
+      <Button
+        disabled
+        label="Logout"
+        icon="pi pi-sign-out"
+      />
     </div>
   </Dialog>
   <!-- Modal for detailed user info -->
@@ -60,5 +64,3 @@ import { ref } from 'vue'
 const appStore = useAppStore()
 const isDetailedUserInfoModalVisible = ref(false)
 </script>
-
-<style scoped></style>

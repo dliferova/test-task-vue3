@@ -19,14 +19,20 @@
       <!-- End card AuthInfo -->
 
       <!-- Start card Events -->
-      <TableItemContainer card-size="large" heading="Events">
+      <TableItemContainer
+        card-size="large"
+        heading="Events"
+      >
         <table class="w-full">
           <tr class="four-columns-tr">
             <td class="font-bold">Create date:</td>
             <td>{{ formatTime(props.data!.events.registered.timestamp) }}</td>
             <td class="font-bold">Registrar:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.events.registered.registrar_handle }}
               </a>
             </td>
@@ -36,7 +42,10 @@
             <td>{{ formatTime(props.data!.events.updated.timestamp) }}</td>
             <td class="font-bold">Registrar:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.events.updated.registrar_handle }}
               </a>
             </td>
@@ -46,7 +55,10 @@
             <td>{{ formatTime(props.data!.events.transferred.timestamp) }}</td>
             <td class="font-bold">Registrar:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.events.transferred.registrar_handle }}
               </a>
             </td>
@@ -60,10 +72,16 @@
       <!-- End card Events -->
 
       <!-- Start card state flags -->
-      <TableItemContainer card-size="large" heading="State flags">
+      <TableItemContainer
+        card-size="large"
+        heading="State flags"
+      >
         <div v-if="props.isVerboseView">
           <ul class="flex flex-column">
-            <li v-for="(flag, index) in appStore.activeStateFlags" :key="`flag-${index}`">
+            <li
+              v-for="(flag, index) in appStore.activeStateFlags"
+              :key="`flag-${index}`"
+            >
               <div class="inline-flex align-items-baseline">
                 <i
                   class="pi text-sm mr-1"
@@ -87,7 +105,10 @@
         </div>
         <div v-else>
           <ul class="display-grid grid-three-columns">
-            <li v-for="(flag, index) in props.data!.state_flags.flags" :key="`state-flag-${index}`">
+            <li
+              v-for="(flag, index) in props.data!.state_flags.flags"
+              :key="`state-flag-${index}`"
+            >
               <div class="inline-flex align-items-baseline">
                 <i
                   class="pi text-sm mr-1"
@@ -115,12 +136,19 @@
 
     <div>
       <!-- Start card owner-->
-      <TableItemContainer card-size="small" heading="Owner">
+      <TableItemContainer
+        card-size="small"
+        heading="Owner"
+      >
         <table class="w-full">
           <tr class="two-columns-tr">
             <td class="font-bold ml-4">Handle:</td>
             <td>
-              <a class="text-primary" href="#">{{ props.data!.owner.handle }}</a>
+              <a
+                class="text-primary"
+                href="#"
+                >{{ props.data!.owner.handle }}</a
+              >
             </td>
           </tr>
           <tr class="two-columns-tr">
@@ -155,7 +183,10 @@
 
       <!-- Start administrative contacts-->
       <div v-if="props.isVerboseView">
-        <TableItemContainer card-size="small" heading="Administrative contacts">
+        <TableItemContainer
+          card-size="small"
+          heading="Administrative contacts"
+        >
           <table class="w-full">
             <tr
               v-for="(contact, index) in props.data!.administrative_contacts"
@@ -164,7 +195,10 @@
             >
               <td class="font-bold pr-4">{{ contact.handle }}:</td>
               <td>
-                <a class="text-primary" href="#">
+                <a
+                  class="text-primary"
+                  href="#"
+                >
                   {{ contact.handle }}
                 </a>
               </td>
@@ -177,12 +211,18 @@
           v-for="(contact, index) in props.data!.administrative_contacts"
           :key="`administrative-${index}`"
         >
-          <TableItemContainer card-size="small" heading="Administrative contacts">
+          <TableItemContainer
+            card-size="small"
+            heading="Administrative contacts"
+          >
             <table class="w-full">
               <tr class="two-columns-tr">
                 <td class="font-bold ml-4">Handle:</td>
                 <td>
-                  <a class="text-primary" href="#">
+                  <a
+                    class="text-primary"
+                    href="#"
+                  >
                     {{ contact.handle }}
                   </a>
                 </td>
@@ -220,12 +260,18 @@
       <!-- End card owner-->
 
       <!-- Start NSSet -->
-      <TableItemContainer card-size="small" heading="NSSet">
+      <TableItemContainer
+        card-size="small"
+        heading="NSSet"
+      >
         <table class="w-full">
           <tr class="two-columns-tr">
             <td class="font-bold">Handle:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.nsset.handle }}
               </a>
             </td>
@@ -233,7 +279,10 @@
           <tr class="two-columns-tr">
             <td class="font-bold">Registrar:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.nsset.registrar }}
               </a>
             </td>
@@ -242,7 +291,10 @@
             <td class="font-bold">DNS:</td>
             <td>
               <ul class="flex flex-column">
-                <li v-for="(dnsItem, index) in props.data!.nsset.dns" :key="`dns-${index}`">
+                <li
+                  v-for="(dnsItem, index) in props.data!.nsset.dns"
+                  :key="`dns-${index}`"
+                >
                   {{ dnsItem.name }} ({{ dnsItem.ip_address }})
                 </li>
               </ul>
@@ -253,12 +305,18 @@
       <!-- End NSSet -->
 
       <!-- Start KeySet -->
-      <TableItemContainer card-size="small" heading="KeySet">
+      <TableItemContainer
+        card-size="small"
+        heading="KeySet"
+      >
         <table class="w-full word-break">
           <tr class="two-columns-tr">
             <td class="font-bold">Handle:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.keyset.handle }}
               </a>
             </td>
@@ -266,7 +324,10 @@
           <tr class="two-columns-tr">
             <td class="font-bold">Registrar:</td>
             <td>
-              <a class="text-primary" href="#">
+              <a
+                class="text-primary"
+                href="#"
+              >
                 {{ props.data!.nsset.registrar }}
               </a>
             </td>
@@ -298,7 +359,11 @@
     :style="{ width: '25rem' }"
   >
     <span class="p-text-secondary block mb-1">Secret password is: </span>
-    <Message :closable="false" severity="info">p4dIdn!m&6dj</Message>
+    <Message
+      :closable="false"
+      severity="info"
+      >p4dIdn!m&6dj</Message
+    >
   </Dialog>
   <!--End modal -->
 </template>

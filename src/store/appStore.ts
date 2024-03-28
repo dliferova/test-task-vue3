@@ -2,18 +2,18 @@ import { defineStore } from 'pinia'
 import type { DomainDetailsApi, StateFlag } from '@/types/common'
 
 interface State {
-  verboseViewMode: boolean
   data: DomainDetailsApi | null
   isPanelOpened: boolean
+  isVerboseView: boolean
   isPageDataLoading: boolean
 }
 
 export const useAppStore = defineStore('appStore', {
   state: (): State => ({
+    data: null,
     isPanelOpened: true,
-    verboseViewMode: false,
-    isPageDataLoading: true,
-    data: null
+    isVerboseView: false,
+    isPageDataLoading: true
   }),
   getters: {
     activeStateFlags(state): StateFlag[] {
@@ -39,7 +39,7 @@ export const useAppStore = defineStore('appStore', {
       this.isPanelOpened = !this.isPanelOpened
     },
     updateSwitchValue() {
-      this.verboseViewMode = !this.verboseViewMode
+      this.isVerboseView = !this.isVerboseView
     }
   }
 })

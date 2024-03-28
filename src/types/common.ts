@@ -1,15 +1,3 @@
-export interface AdministrativeContactInterface {
-  handle: string
-  organization: string
-  name: string
-  publish: {
-    organization: boolean
-    name: boolean
-  }
-}
-
-export interface EventsInterface {}
-
 export interface StateFlag {
   name: string
   active: boolean

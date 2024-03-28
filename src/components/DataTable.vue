@@ -2,7 +2,7 @@
   <div class="display-grid desktop-table-layout w-full">
     <div>
       <!-- Start card AuthInfo -->
-      <TableItemContainer card-size="large">
+      <BaseCard card-size="large">
         <table class="w-full">
           <tr class="two-columns-tr">
             <td class="font-bold">AuthInfo:</td>
@@ -15,11 +15,11 @@
             <td>{{ formatTime(props.data!.expires_at) }}</td>
           </tr>
         </table>
-      </TableItemContainer>
+      </BaseCard>
       <!-- End card AuthInfo -->
 
       <!-- Start card Events -->
-      <TableItemContainer
+      <BaseCard
         card-size="large"
         heading="Events"
       >
@@ -68,11 +68,11 @@
             <td v-if="props.data!.events.unregistered === null"></td>
           </tr>
         </table>
-      </TableItemContainer>
+      </BaseCard>
       <!-- End card Events -->
 
       <!-- Start card state flags -->
-      <TableItemContainer
+      <BaseCard
         card-size="large"
         heading="State flags"
       >
@@ -130,13 +130,13 @@
             </li>
           </ul>
         </div>
-      </TableItemContainer>
+      </BaseCard>
       <!-- End card state flags -->
     </div>
 
     <div>
       <!-- Start card owner-->
-      <TableItemContainer
+      <BaseCard
         card-size="small"
         heading="Owner"
       >
@@ -178,12 +178,12 @@
             <td>{{ props.data!.owner.name }}</td>
           </tr>
         </table>
-      </TableItemContainer>
+      </BaseCard>
       <!-- End card owner -->
 
       <!-- Start administrative contacts-->
       <div v-if="props.isVerboseView">
-        <TableItemContainer
+        <BaseCard
           card-size="small"
           heading="Administrative contacts"
         >
@@ -204,14 +204,14 @@
               </td>
             </tr>
           </table>
-        </TableItemContainer>
+        </BaseCard>
       </div>
       <div v-else>
         <div
           v-for="(contact, index) in props.data!.administrative_contacts"
           :key="`administrative-${index}`"
         >
-          <TableItemContainer
+          <BaseCard
             card-size="small"
             heading="Administrative contacts"
           >
@@ -254,13 +254,13 @@
                 <td>{{ contact.name }}</td>
               </tr>
             </table>
-          </TableItemContainer>
+          </BaseCard>
         </div>
       </div>
       <!-- End card owner-->
 
       <!-- Start NSSet -->
-      <TableItemContainer
+      <BaseCard
         card-size="small"
         heading="NSSet"
       >
@@ -301,11 +301,11 @@
             </td>
           </tr>
         </table>
-      </TableItemContainer>
+      </BaseCard>
       <!-- End NSSet -->
 
       <!-- Start KeySet -->
-      <TableItemContainer
+      <BaseCard
         card-size="small"
         heading="KeySet"
       >
@@ -346,7 +346,7 @@
             </td>
           </tr>
         </table>
-      </TableItemContainer>
+      </BaseCard>
       <!-- End KeySet -->
     </div>
   </div>
@@ -370,7 +370,7 @@
 
 <script setup lang="ts">
 import { formatTime } from '@/utils/utils'
-import TableItemContainer from '@/components/ui/TableItemContainer.vue'
+import BaseCard from '@/components/ui/BaseCard.vue'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
 import Message from 'primevue/message'

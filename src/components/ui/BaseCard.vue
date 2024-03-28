@@ -1,10 +1,10 @@
 <script setup lang="ts">
-interface TableItemProps {
+interface BaseCardProps {
   heading?: string
   cardSize: 'small' | 'large'
 }
 
-const props = defineProps<TableItemProps>()
+const props = defineProps<BaseCardProps>()
 </script>
 
 <template>

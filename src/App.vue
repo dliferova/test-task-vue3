@@ -1,7 +1,9 @@
 <template>
-  <PageComponent />
+  <PageHeader />
+  <PageContent />
 </template>
 
 <script setup lang="ts">
-import PageComponent from '@/components/PageComponent.vue'
+import PageHeader from '@/components/PageHeader.vue'
+import PageContent from '@/components/PageContent.vue'
 </script>

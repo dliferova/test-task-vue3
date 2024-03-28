@@ -3,10 +3,10 @@
     class="display-grid h-full"
     :class="{ 'two-columns-layout': appStore.isPanelOpened }"
   >
-    <BasePanelComponent />
+    <SidePanel />
     <div class="pt-3 pr-4 pb-2 pl-4">
       <h1 class="text-xl font-bold m-0 mb-3">{{ appStore.data!.fqdn }}</h1>
-      <SwitchViewElement
+      <ViewSwitch
         label="Verbose view"
         @on-switch="appStore.updateSwitchValue"
       />
@@ -19,8 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import SwitchViewElement from '@/components/ui/SwitchViewComponent.vue'
-import BasePanelComponent from '@/components/ui/BasePanelComponent.vue'
+import ViewSwitch from '@/components/ui/ViewSwitch.vue'
+import SidePanel from '@/components/ui/SidePanel.vue'
 import DataTable from '@/components/DataTable.vue'
 import { useAppStore } from '@/store/appStore'
 

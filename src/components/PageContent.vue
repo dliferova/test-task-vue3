@@ -1,11 +1,11 @@
 <template>
   <main class="main">
     <template v-if="appStore.isPageDataLoading">
-      <LoaderComponent />
+      <PageLoader />
     </template>
     <template v-else>
       <template v-if="appStore.data === null">
-        <ErrorMessageComponent />
+        <ErrorMessage />
       </template>
       <template v-else>
         <MainContent />
@@ -17,8 +17,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useAppStore } from '@/store/appStore'
-import LoaderComponent from '@/components/ui/LoaderComponent.vue'
-import ErrorMessageComponent from '@/components/ui/ErrorMessageComponent.vue'
+import PageLoader from '@/components/ui/PageLoader.vue'
+import ErrorMessage from '@/components/ui/ErrorMessage.vue'
 import MainContent from '@/components/MainContent.vue'
 
 const appStore = useAppStore()

@@ -104,7 +104,7 @@
           </ul>
         </div>
         <div v-else>
-          <ul class="display-grid grid-three-columns">
+          <ul class="display-grid flags-layout">
             <li
               v-for="(flag, index) in props.data!.state_flags.flags"
               :key="`state-flag-${index}`"
@@ -362,8 +362,8 @@
     <Message
       :closable="false"
       severity="info"
-      >p4dIdn!m&6dj</Message
-    >
+      >p4dIdn!m&6dj
+    </Message>
   </Dialog>
   <!--End modal -->
 </template>
@@ -389,29 +389,61 @@ const props = defineProps<DataTableProps>()
 </script>
 
 <style scoped>
-@media (min-width: 1230px) {
-  .desktop-table-layout {
-    grid-template-columns: 60% 38%;
-    column-gap: 2%;
-  }
-}
-
 .card tr {
   max-width: 100%;
   display: grid;
 }
 
-.card--small .two-columns-tr {
-  grid-template-columns: 40% 60%;
-}
-
+.card--small .two-columns-tr,
 .card--large .two-columns-tr {
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 30% 60%;
   column-gap: 5%;
 }
 
 .card--large .four-columns-tr {
-  grid-template-columns: 25% repeat(3, max-content);
+  grid-template-columns: 1fr;
   column-gap: 5%;
+}
+
+@media (min-width: 560px) and (max-width: 1023px) {
+  .card--large .four-columns-tr {
+    grid-template-columns: 30% 60%;
+    column-gap: 5%;
+  }
+}
+
+@media (min-width: 767px) {
+  .flags-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card--large .four-columns-tr {
+    grid-template-columns: 30% 30% repeat(2, max-content);
+    column-gap: 5%;
+  }
+}
+
+@media (min-width: 1230px) {
+  .desktop-table-layout {
+    grid-template-columns: 60% 38%;
+    column-gap: 2%;
+  }
+
+  .card--small .two-columns-tr {
+    grid-template-columns: 40% 60%;
+    column-gap: 0;
+  }
+
+  .card--large .two-columns-tr {
+    grid-template-columns: 25% 70%;
+    column-gap: 5%;
+  }
+
+  .card--large .four-columns-tr {
+    grid-template-columns: 25% 30% repeat(2, max-content);
+    column-gap: 5%;
+  }
 }
 </style>

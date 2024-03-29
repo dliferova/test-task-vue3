@@ -17,7 +17,7 @@ Cílem tohoto úkolu bylo vytvořit webovou stránku s detaily fiktivní domény
 ## Features
 
 1) Použito Vue 3 s dodržením **Priority A: Essential** a některých **Priority B - Strongly Recommended**.
-1) Vytvořen responzivní design aplikace.
+1) Vytvořen responzivní design aplikace (mobile - 320px; tablet - 768px; desktop - 1024px).
 1) Webová stránka s detaily má dva režimy - stručný a podrobný. 
 1) Po kliknutí na tlačítko "Zobrazit" v řádku AuthInfo je zobrazeno tajné heslo. 
 1) Po kliknutí na uživatelské jméno v pravém horním rohu stránky se zobrazí uživatelské menu.

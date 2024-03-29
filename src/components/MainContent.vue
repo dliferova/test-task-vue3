@@ -28,7 +28,9 @@ const appStore = useAppStore()
 </script>
 
 <style scoped>
-.two-columns-layout {
-  grid-template-columns: 240px 1fr;
+@media (min-width: 768px) {
+  .two-columns-layout {
+    grid-template-columns: 240px 1fr;
+  }
 }
 </style>
